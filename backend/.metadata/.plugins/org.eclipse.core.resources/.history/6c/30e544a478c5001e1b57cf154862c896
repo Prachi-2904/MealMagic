@@ -1,0 +1,42 @@
+package com.app.entities;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.*;
+
+import lombok.*;
+
+@Entity
+@Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(name="booking")
+public class Booking extends BaseEntity {
+	
+	private boolean status;
+	@Column(name="booking_date_time")
+	private LocalDateTime bookingDateTime;
+	//(FK chef id)
+    @JoinColumn(name = "chef_id")
+    private Chef chefId;
+	//(Fk UserId)
+    
+    @JoinColumn(name="user_id")
+    private User userId;
+	//One-To-One Associaction   1 Booking --> 1 Payment
+	@Embedded
+	@OneToOne
+	private Payment payment;
+	
+}
+
+
+
+
+
+/* these have one to one uni directional relation booking to payment , chef to location , 
+this has 1 to many  uni directional relation: user to booking,
+this has nany to one uni directional : payment to chef  
+this forms Has A relationship between chef and speciality*/

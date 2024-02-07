@@ -1,0 +1,30 @@
+package com.app.entities;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.*;
+
+
+public class Location {
+	@Entity
+	@Table(name="user_adr")
+	@NoArgsConstructor
+	@Getter
+	@Setter
+	@ToString
+	public class Address extends BaseEntity {
+		@Column(length=30)
+		private String street;
+		@Column(length=20)
+		private String city;
+		@Column(length=20)
+		private String state;
+		@Column(length=20)
+		private String country;
+		@Column(length=20,name="zip_code")
+		private String zipCode;
+}

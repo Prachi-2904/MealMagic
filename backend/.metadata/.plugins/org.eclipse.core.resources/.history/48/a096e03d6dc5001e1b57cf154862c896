@@ -1,0 +1,20 @@
+package com.app.entities;
+
+import javax.persistence.*;
+
+public class Payment {
+	private double totalPrice;
+	//many to one association M Payment -------> 1 Chef
+@ManyToOne(fetch=FetchType.LAZY)
+@JoinColumn(name="chef_id")
+private Chef chef;
+
+
+
+
+//FK (private int bookingId;) Bi directional
+@OneToOne
+@JoinColumn(name="booking_id")
+private Booking booking;
+
+}

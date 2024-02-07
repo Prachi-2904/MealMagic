@@ -1,0 +1,36 @@
+package com.app.entities;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.*;
+
+import lombok.*;
+@Entity
+@Table(name = "booking")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Booking extends BaseEntity {
+
+    private boolean status;
+
+    @Column(name = "booking_date_time")
+    private LocalDateTime bookingDateTime;
+
+    // Unidirectional many-to-one relationship with Chef
+    @ManyToOne
+    @JoinColumn(name = "chef_id")
+    private Chef chefId;
+
+    // Unidirectional many-to-one relationship with User
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    // Unidirectional one-to-one relationship with Payment
+    @OneToOne
+    @JoinColumn(name = "payment_id")
+    private Payment payment;
+
+    // Constructors, getters, setters, and other methods
+}

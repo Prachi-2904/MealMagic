@@ -1,0 +1,13 @@
+package com.app.entities;
+
+public class Payment {
+
+	
+//	FK (private int bookingId;)
+	private double totalPrice;
+	private boolean status;
+	//many to one association M Payment -------> 1 Chef
+@ManyToOne(fetch=fetchType.LAZY)
+@JoinColumn(name="chef_id")
+
+}

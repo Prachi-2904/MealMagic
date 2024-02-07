@@ -1,0 +1,25 @@
+package com.app.entities;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.*;
+
+import lombok.*;
+
+
+@Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Booking extends BaseEntity {
+	
+	private boolean status;
+	private LocalDateTime bookingDateTime;
+	//(FK chef id)
+	//(Fk UserId)
+	//One-To-One Associaction   1 Booking --> 1 Payment
+	@Embedded
+	private Payment payment;
+	
+}

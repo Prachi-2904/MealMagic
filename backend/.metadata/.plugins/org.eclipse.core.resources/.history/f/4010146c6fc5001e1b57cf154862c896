@@ -1,0 +1,18 @@
+package com.app.entities;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.*;
+
+@Entity
+@Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(name="rating_and_review")
+public class RatingAndReviews extends BaseEntity {
+
+}

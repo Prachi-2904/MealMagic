@@ -1,0 +1,39 @@
+package com.app.entities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+
+public class Chef {
+
+	private String chefName;
+	private String chefEmail;	
+	private String chefPassword;
+	private byte[] chefImage;
+	private String imagePath;
+	private String chefContact;
+	private boolean chefAvailability;
+	private int chefExperience;
+	private int chefAge;
+	private Rating chefRating;
+	private Speciality speciality;     //Chef Has-A-Speciality
+	
+	
+	
+	
+	
+	
+	
+	//If we want one chef has many Speciality
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
+	
+	
+	
+    //private Set<Speciality> specialities;
+	// one to one association chef ----> location
+	@Embedded // OPTIONAL
+	private Location chefLocation;
+	
+}
