@@ -1,0 +1,10 @@
+package com.app.entities;
+
+public class Payment {
+
+	
+//	FK (private int bookingId;)
+	private double totalPrice;
+	private boolean status;
+
+}

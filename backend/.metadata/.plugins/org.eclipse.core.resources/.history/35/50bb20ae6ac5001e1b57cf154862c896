@@ -1,0 +1,23 @@
+package com.example.entities;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "specialities")
+public class ChefSpecialites {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private SpecialityType type;
+
+    @ManyToOne
+    @JoinColumn(name = "chef_id")
+    private Chef chef;
+
+    // Other fields, getters, setters, and constructors
+
+    // Constructors, getters, setters, and other methods
+}

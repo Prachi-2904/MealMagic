@@ -1,0 +1,19 @@
+package com.example.entities;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "specialities")
+public class ChefSpecialites extends BaseEntity {
+
+    
+
+    @Enumerated(EnumType.STRING)
+    private Speciality type;
+
+    @ManyToOne
+    @JoinColumn(name = "chef_id")
+    private Chef chef;
+
+    
+}

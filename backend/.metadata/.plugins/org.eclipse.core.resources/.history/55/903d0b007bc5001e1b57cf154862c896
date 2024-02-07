@@ -1,0 +1,22 @@
+package com.app.entities;
+
+import javax.persistence.*;
+
+import lombok.*;
+
+@Entity
+@Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(name="rating_and_review")
+public class RatingAndReviews extends BaseEntity {
+	private int rating;
+
+    @JoinColumn(name = "chef_id")
+    private Chef chefId; // Foreign key column referencing the Chef table's primary key
+
+    @Column(length = 500) 
+    private String review;
+}
