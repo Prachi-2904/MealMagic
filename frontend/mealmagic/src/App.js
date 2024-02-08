@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes,Route, BrowserRouter } from 'react-rout
 import LoginForm from './Components/LoginForm';
 import registrationForm from './Components/ChefRegistrationForm';
 import ChefRegistrationForm from './Components/ChefRegistrationForm';
+import SignUp from './Components/SignUp';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path='/login' element={<LoginForm></LoginForm>}/>
-          <Route path='/signup' element={<LoginForm></LoginForm>}/>
+          <Route path='/signup' element={<SignUp></SignUp>}/>
           <Route path='/chefregister' element={<ChefRegistrationForm></ChefRegistrationForm>}/>
 
         </Routes>

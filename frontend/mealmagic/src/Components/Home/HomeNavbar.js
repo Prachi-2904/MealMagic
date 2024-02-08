@@ -28,7 +28,7 @@ const HomeNavbar = () => {
               />
             </Navbar.Brand>
             <Nav className="align-self-end fs-4" variant='tabs'>
-              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/findchef">Find Chef</Nav.Link>
               <Nav.Link href="/bookchef">Book Chef</Nav.Link>
             </Nav>
