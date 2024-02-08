@@ -1,5 +1,4 @@
-// Filename - components/Footer.js
-
+// Filename - components/Footer.j
 import React from "react";
 import {
 	Box,
