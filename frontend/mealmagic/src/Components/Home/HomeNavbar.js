@@ -1,12 +1,19 @@
 import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const HomeNavbar = () => {
-  const bgColor = "#493305";
+  const bgColor = "#604509";
   const buttonStyle = {
     marginRight: '15px', // Adjust the right margin as needed
   };
-
+  const navigate= useNavigate();
+  function handleSignUpClick(){
+   navigate("/chefregister");
+ };
+ function handleLoginClick(){
+  navigate("/login")
+ }
   return (
     <>
       <Navbar style={{ backgroundColor: bgColor}}  variant="dark" fixed="top">
@@ -21,13 +28,13 @@ const HomeNavbar = () => {
               />
             </Navbar.Brand>
             <Nav className="align-self-end fs-4" variant='tabs'>
-              <Nav.Link href="/login">Home</Nav.Link>
+              <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#findchef">Find Chef</Nav.Link>
               <Nav.Link href="#bookchef">Book Chef</Nav.Link>
             </Nav>
             <div className="d-flex ml-auto">
-              <Button variant="outline-light" style={buttonStyle}>Sign-Up</Button>
-              <Button variant="outline-light" className="ml-2">Log-In</Button>
+              <Button variant="outline-light" style={buttonStyle} onClick={handleSignUpClick}>Sign-Up</Button>
+              <Button variant="outline-light" className="ml-2" onClick={handleLoginClick}>Log-In</Button>
             </div>
           </div>
         </Container>
