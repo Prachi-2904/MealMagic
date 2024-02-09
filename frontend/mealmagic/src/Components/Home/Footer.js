@@ -14,6 +14,7 @@ const Footer = () => {
 		<Box>
 	
 			<FooterContainer>
+				
 				<Row>
 					<Column>
 						<Heading>About Us</Heading>

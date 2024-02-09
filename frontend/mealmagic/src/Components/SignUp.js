@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
 
 const SignUp = () => {
   return (
-    <div style={{ paddingTop: '160px', background: '#EBA874' }}>
-
+    <div style={{ paddingTop: '160px', background: '#F8B72B' }}>
       <div style={{ padding: '30px', textAlign: 'center', color: '#493305', textShadow: '1px 1px 2px #0000' }}>
         <h1 style={{ fontFamily: 'cursive', fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}>
           👨‍🍳 Ready to whip up magic in the kitchen or just here to admire the delicious chaos?
@@ -19,27 +19,24 @@ const SignUp = () => {
       </div>
 
       <Container>
-        <div className="row mb-5">
-          <div className="row justify-content-center">
-            <div className="col-sm-5">
-              <h3><a href='/chefregister'>🎩 Culinary Sorcerer (aka Chef)</a></h3>
-              <div className="img-wrapper">
-                <a href="/chefregister">
-                  <img className="inner-img img-fluid" src="./images/chef1.jpg" alt="Chef" />
-                </a>
-              </div>
+        <Row className="mb-5">
+          <Col sm={5}>
+            <h3><Link to='/chefregister'>🎩 Culinary Sorcerer (aka Chef)</Link></h3>
+            <div className="img-wrapper">
+              <Link to="/chefregister">
+                <img className="inner-img img-fluid" src="./images/chef1.jpg" alt="Chef" />
+              </Link>
             </div>
-            <div className="col-sm-5 d-inline" >
-            <h3><a href='/userregister'>🍔 Foodie Fanatic (aka Hungry Human)</a></h3>
-
-              <div className="img-wrapper">
-                <a href="/userregister">
-                  <img className="inner-img img-fluid" src="./images/foodie.jpg" alt="Foodie" />
-                </a>
-              </div>
+          </Col>
+          <Col sm={5}>
+            <h3><Link to='/userregister'>🍔 Foodie Fanatic (aka Hungry Human)</Link></h3>
+            <div className="img-wrapper">
+              <Link to="/userregister">
+                <img className="inner-img img-fluid" src="./images/foodie.jpg" alt="Foodie" />
+              </Link>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
