@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
+import { Button,Nav } from 'react-bootstrap';
 
 const Home = () => {
   const buttonStyle = {
@@ -31,6 +31,7 @@ const Home = () => {
           </div>
       </div>
       </Container>
+      <hr/>
       <Container className="mt-4" style={{paddingTop:'30px'}}>
         <Row>
           <Col md={6}>
@@ -50,7 +51,43 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      <hr/>
+      <Container style={{paddingTop:'40px', paddingBottom:"30px"}}>
+        <Row>
+          <Col>
+          <Image src="./images/chef2.jpg" fluid thumbnail/>
+          </Col>
+          <Col>
 
+          <Row>
+          <h1 style={{ fontFamily: '-moz-initial', fontPalette: 'dark' }} className="fw-bolder">
+          <Nav.Item>
+          <Nav.Link href="/findallchef">Discover Chef specialities</Nav.Link>
+          </Nav.Item></h1>
+          <p>Explore a wide range of chef specialities and find the perfect match for your event or meal...</p>
+          </Row>
+
+
+          <Row style={{paddingTop:"30px"}}>
+          <h1 style={{ fontFamily: '-moz-initial', fontPalette: 'dark' }} className="fw-bolder">
+          <Nav.Item>
+          <Nav.Link href="/happycustomer">Rate and Review Chefs</Nav.Link>
+          </Nav.Item></h1>
+          <p>Share your experience and help others make informed descisions by rating and reviewing the chefs you've booked.</p>
+          </Row>
+
+          <Row style={{paddingTop:"30px"}}>
+          <h1 style={{ fontFamily: '-moz-initial', fontPalette: 'dark' }} className="fw-bolder">
+          <Nav.Item>
+          <Nav.Link href="/findallchef">Flexible Bookings</Nav.Link>
+          </Nav.Item></h1>
+          <p>Book chef for one time events, weekly or monthly basis and enjoy the convenience of flexible bookings.</p>
+          </Row>
+          </Col>
+
+
+        </Row>
+      </Container>
     </div>
   );
 };

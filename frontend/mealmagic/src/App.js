@@ -8,6 +8,7 @@ import LoginForm from './Components/LoginForm';
 import registrationForm from './Components/ChefRegistrationForm';
 import ChefRegistrationForm from './Components/ChefRegistrationForm';
 import SignUp from './Components/SignUp';
+import FindAChef from './Components/FindAChef';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/login' element={<LoginForm></LoginForm>}/>
           <Route path='/signup' element={<SignUp></SignUp>}/>
           <Route path='/chefregister' element={<ChefRegistrationForm></ChefRegistrationForm>}/>
+          <Route path='/findallchef' element={<FindAChef></FindAChef>}/>
 
         </Routes>
       </div>
