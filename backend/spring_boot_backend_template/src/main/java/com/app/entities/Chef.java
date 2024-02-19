@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -63,5 +64,8 @@ public class Chef extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
 	private Location chefLocation;
+
+ 
+    
 	
 }
