@@ -1,13 +1,16 @@
 package com.app.entities;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,31 +44,20 @@ public class Chef extends BaseEntity {
 	@Enumerated(EnumType.STRING) // col : varchar => enum constant name
 	@Column(name="chef_speciality")
 	private Speciality chefSpeciality;
-	
-	
-	
 	// one to many for chef s reviews and ratings 
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    private RatingAndReviews ratingsAndReviews;
    
 //    @ManyToOne
 //    @JoinColumn(name = "speciality_id")
 //	private Speciality speciality;     //Chef Has-A-Speciality
-//	
-	
 	//If we want one chef has many Speciality
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
-	
-	
-
     //private Set<Speciality> specialities;
 	// one to one association chef ----> location
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id")
-	private Location chefLocation;
-
- 
-    
-	
+	 @OneToOne(cascade = CascadeType.ALL ,fetch=FetchType.LAZY)
+	 @JoinColumn(name = "location_id")
+		private Location chefLocation;	
+	 
+	 @OneToOne(cascade = CascadeType.ALL , fetch=FetchType.LAZY)
+	 private RatingAndReviews ratingsAndReviews;
 }

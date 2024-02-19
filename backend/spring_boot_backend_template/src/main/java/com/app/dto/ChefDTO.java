@@ -43,8 +43,8 @@ public class ChefDTO {
 	
 	@NotNull
 	private Speciality chefSpeciality;
+//	@JsonProperty(access = Access.WRITE_ONLY) 
+//	 private RatingAndReviews ratingsAndReviews;
 	@JsonProperty(access = Access.WRITE_ONLY) 
-	 private RatingAndReviews ratingsAndReviews;
-	@JsonProperty(access = Access.WRITE_ONLY) 
-	 private Location chefLocation;
+	 private Long locationId;
 }
