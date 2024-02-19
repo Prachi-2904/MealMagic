@@ -39,10 +39,24 @@ public class User extends BaseEntity {
     @Column(name = "user_password") // Assuming it's a password field
     private String userPassword;
 
+    @Enumerated
+    @Column(name="meal_type")
+    private mealType meal;
+
     // Unidirectional one-to-many relationship: User to Booking
     @ElementCollection
-    @CollectionTable(name = "user_bookings", joinColumns = @JoinColumn(name = "user_id"))
+       @JoinColumn(name = "user_id")
     private List<Booking> bookings = new ArrayList<>();
+	// as per Gavin King's IMPORTANT suggestion add helper methods to add/remove
+	// child
+	public void addBooking(Booking b) {
+		bookings.add(b);// user --> booking
+		b.setUser(this);// booking-->user
+	}
+	public void deleteBooking(Booking b) {
+		bookings.remove(b);
+		b.setUser(null);
+	}
 
     public User(String userName, String userEmail, String userContact, String userCity, double userBudget,
             List<Booking> bookings) {

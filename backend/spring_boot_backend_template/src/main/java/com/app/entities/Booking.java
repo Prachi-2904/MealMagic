@@ -26,6 +26,8 @@ public class Booking extends BaseEntity {
     // Bidirectional many-to-one relationship with User
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @MapsId
+
     private User user;
 
     // Unidirectional one-to-one relationship with Payment
