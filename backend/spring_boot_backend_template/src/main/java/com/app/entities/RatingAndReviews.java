@@ -16,4 +16,7 @@ public class RatingAndReviews extends BaseEntity {
 
     @Column(length = 500) 
     private String review;
+    
+//    @OneToOne(cascade = CascadeType.ALL , fetch=FetchType.LAZY)
+//    private Chef chef;
 }
