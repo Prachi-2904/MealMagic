@@ -1,80 +1,71 @@
 import React from "react";
 import { useState} from "react";
 import { useNavigate } from 'react-router-dom';
-import chefService from '../services/chef.service';
 
-function ChefRegistrationForm(){
+import userService from '../services/user.service';
+
+function UserRegistrationForm(){
 
     const navigate = useNavigate(); // Initialize useHistory
 
 
+
     const [formData, setFormData] = useState({
-        photo: null,
         name: "",
         birthday: "",
         gender: "",
         email: "",
         password: "",
-        experience: "",
         mobilenumber: "",
         address: "",
-        speciality: "",
+        userbudget:""
       });
-
-
+    
       const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(e.target);
-        console.log(formData);
         setFormData({ ...formData, [name]: value });
       };
     
-      const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setFormData({ ...formData, photo: file });
+      const handleGroceryChange = (e) => {
+      
+        
       };
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        const chef={
-            photo: formData.photo,
+        const user={
             name: formData.name,
             birthday: formData.birthday,
             gender: formData.gender,
             email: formData.email,
             password: formData.password,
-            experience: formData.experience,
             mobilenumber: formData.mobilenumber,
             address: formData.address,
-            speciality: formData.speciality
+            userbudget:formData.userbudget
 
         };
         //create 
-        console.log(chef);
-        chefService.addNewChef(chef).then((Response)=>{
-            console.log("added succes",Response.data);
-        })
+        userService
+        .addUser(user)
         .then((response)=>{
-            console.log("chef added successfully",response.formData);
-            navigate('/login');
+            console.log("user added successfully",response.formData);
+            navigate('/');
         })
         .catch((error)=>{
             console.log("something went wrong"+error.response);
         });
         
-        /*setFormData({
+        setFormData({
           photo: null,
           name: "",
           birthday: "",
           gender: "",
           email: "",
           password: "",
-          experience: "",
           mobilenumber: "",
           address: "",
-          speciality: "",
-        });*/
+          userbudget:""
+        });
       }
    
     return(
@@ -95,25 +86,17 @@ function ChefRegistrationForm(){
             <div class="card card-2">
                 <div class="card-heading"></div>
                 <div class="card-body">
-                    <h2 class="title">Chef Registration</h2>
-                    <form method="POST" onSubmit={handleSubmit}>
-                        <div class="container">
-                            <div class="picture-container">
-                                <div class="picture">
-                                    <img src="/images/avatar.png" class="picture-src" id="wizardPicturePreview" aria-placeholder="Photo"/>
-                                    <input type="file" id="wizard-picture" class="rounded float-right" placeholder="Photo" name="photo" onChange={handleFileChange}/>
-                                </div>
-                                <h6 >Add photo</h6>
-                            </div>
-                            <br/>
-                        </div>
+                    <h2 class="title">User Registration</h2>
+                    <form method="POST">
+                     
                         <div class="input-group">
                             <input class="input--style-2" type="text" placeholder="Name" name="name"   onChange={handleInputChange} required/>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="number" placeholder="Age"    onChange={handleInputChange} name="age"/>
+                                    <input class="input--style-2 js-datepicker" type="date" placeholder="Birthdate"    onChange={handleInputChange} name="birthday"/>
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -149,7 +132,11 @@ function ChefRegistrationForm(){
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2" type="number" placeholder="Exprience"  onChange={handleInputChange} name="experience"/>
+                                <select name="Grocery" onChange={handleGroceryChange} >
+                                            <option disabled="disabled" selected="selected ">Grocery Required:</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
                                 </div>
                             </div>
                                 <div class="col-2">
@@ -162,21 +149,11 @@ function ChefRegistrationForm(){
                             <input class="input--style-2" type="textarea" placeholder="Address"  onChange={handleInputChange} name="address" required/>
                         </div>
                         <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="speciality">
-                                    <option disabled="disabled" selected="selected" placeholder="Speciality"  onChange={handleInputChange}>Speciality</option>
-                                    <option>North Indian</option>
-                                    <option>South Indian</option>
-                                    <option>Italian</option>
-                                    <option>General</option>
-                                    <option>Regional</option>
-                                    <option>Continental</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
+                        <input class="input--style-2" type="text" placeholder="User Budget"  onChange={handleInputChange} name="user budget"/>
+
                         </div>
                         <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Register</button>
+                            <button class="btn btn--radius btn--green" type="submit" onClick={(e) => handleSubmit(e)}>Register</button>
                         </div>
                     </form>
                 </div>
@@ -196,6 +173,6 @@ function ChefRegistrationForm(){
 
         </>
     );
-}export default ChefRegistrationForm;
+}export default UserRegistrationForm;
 
 

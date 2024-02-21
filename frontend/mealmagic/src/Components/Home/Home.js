@@ -6,11 +6,20 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button,Nav } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const buttonStyle = {
     marginRight: '15px', // Adjust the right margin as needed
   };
+  const navigate= useNavigate();
+  function handleSignUpClick(){
+   navigate("/signup");
+ };
+ function handleFindAllChef(){
+  navigate("/findallchef");
+};
+ 
 
   return (
     <div style={{ paddingTop: '150px', background: '#F8B72B' }}>
@@ -25,8 +34,8 @@ const Home = () => {
           </div>
           <span className='col-md-5' d-flex>
             <p style={{fontPalette:'dark'}}> Discover talented chefs in your area and enjoy delicious meal tailored to your preferences . Wheather it is special event or a regular one . MagicMeal has you covered </p>
-            <Button variant="dark" style={buttonStyle}>Explore Now</Button> 
-            <Button variant="dark" className='=btn'>Sign Up</Button>
+            <Button variant="dark" style={buttonStyle} onClick={handleFindAllChef}>Explore Now</Button> 
+            <Button variant="dark" className='=btn' onClick={handleSignUpClick}>Sign Up</Button>
           </span>
           </div>
       </div>
@@ -43,7 +52,7 @@ const Home = () => {
             </p>
             <div className="d-flex ml-auto">
                 <Button variant="dark" style={buttonStyle}>Learn More</Button>
-                <Button variant="dark" className='ml-4'>Sign-Up</Button>
+                <Button variant="dark" className='ml-4' onClick={handleSignUpClick}>Sign-Up</Button>
             </div>
           </Col>
           <Col md={6}>
@@ -79,7 +88,7 @@ const Home = () => {
           <Row style={{paddingTop:"30px"}}>
           <h1 style={{ fontFamily: '-moz-initial', fontPalette: 'dark' }} className="fw-bolder">
           <Nav.Item>
-          <Nav.Link href="/findallchef">Flexible Bookings</Nav.Link>
+          <Nav.Link href="/findallchef" >Flexible Bookings</Nav.Link>
           </Nav.Item></h1>
           <p>Book chef for one time events, weekly or monthly basis and enjoy the convenience of flexible bookings.</p>
           </Row>
